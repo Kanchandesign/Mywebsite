@@ -10,39 +10,35 @@ function Gallery({ showAbout, setShowAbout }) {
   const projects = [
     {
       id: 1,
-      title: 'HGUI Design System',
+      title: 'Helpline Club',
       subtitle: 'Product • UX Design',
-      image: 'https://via.placeholder.com/800x500?text=HGUI+Design+System',
+      image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/Hand%20and%20iPhone%2016%20Pro.png',
       backgroundColor: '#1a1a1a',
       color: 'dark',
-      dots: 3
     },
     {
       id: 2,
-      title: 'The Nahire Cult',
+      title: 'Y22 ai',
       subtitle: 'Product',
-      image: 'https://via.placeholder.com/800x500?text=The+Nahire+Cult',
+      image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/Free%20MacBook%20Pro%20mockup%20on%20stone%20pedestal%20%28Mockuuups%20Studio%29.png',
       backgroundColor: '#90C4B0',
       color: 'light',
-      dots: 2
     },
     {
       id: 3,
-      title: 'GAD',
+      title: 'Chef Ami',
       subtitle: 'Product • Web',
-      image: 'https://via.placeholder.com/800x500?text=GAD+Project',
+      image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/Pixel%207a.png',
       backgroundColor: '#2c2c3c',
       color: 'dark',
-      dots: 2
     },
     {
       id: 4,
-      title: 'SAM Corp',
+      title: 'SAM',
       subtitle: 'Product • Web',
-      image: 'https://via.placeholder.com/800x500?text=SAM+Corp',
+      image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/MacBook%20%2301.png',
       backgroundColor: '#f5a557',
       color: 'light',
-      dots: 3
     }
   ]
 
@@ -84,8 +80,9 @@ function Gallery({ showAbout, setShowAbout }) {
               key={project.id} 
               className="project-wrapper"
               style={{
-                opacity: Math.abs(index - activeProject) > 1.5 ? 0.5 : 1,
-                transform: `translateY(${Math.max(0, (activeProject - index) * -5)}px)`
+                opacity: 1,
+                transform: `translateY(${(activeProject - index) * -10}px)`,
+                transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)'
               }}
             >
               <ProjectCard project={project} index={index} />
