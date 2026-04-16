@@ -1,10 +1,10 @@
 .project-card {
   position: relative;
   overflow: hidden;
-  padding: 40px;
   margin: 20px;
+  margin-bottom: 0;
   border-radius: 4px;
-  min-height: 700px;
+  min-height: 650px;
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
