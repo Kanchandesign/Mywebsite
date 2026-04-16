@@ -6,7 +6,7 @@ function Sidebar({ setShowAbout, showAbout }) {
       <div className="sidebar-content">
         {/* Profile Image */}
         <div className="profile-image">
-          <img src="https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/IMG-20260405-WA0041%20(1).jpg" alt="Profile" />
+          <img src="/profile.png" alt="Profile" />
         </div>
 
         {/* Name and Bio */}
