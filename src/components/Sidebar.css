@@ -81,6 +81,21 @@
   justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+  .sidebar-content {
+    height: auto;
+    min-height: 0;
+    justify-content: flex-start;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-content {
+    gap: 20px;
+  }
+}
+
 .profile-image {
   width: 80px;
   height: 80px;
