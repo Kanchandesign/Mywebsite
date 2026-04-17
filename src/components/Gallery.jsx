@@ -30,7 +30,7 @@ function Gallery({ showAbout, setShowAbout }) {
       id: 4,
       title: 'SAM',
       subtitle: 'Product • Web',
-      image: '/MacBook #01.png',
+      image: '/MacBook-01.png',
       backgroundColor: '#2c2c3c',
       color: 'dark',
       dots: 1,
