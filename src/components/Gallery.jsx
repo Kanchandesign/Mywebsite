@@ -9,36 +9,40 @@ function Gallery({ showAbout, setShowAbout }) {
 
   const projects = [
     {
-      id: 1,
-      title: 'Helpline Club',
-      subtitle: 'Product • UX Design',
-      image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/Hand%20and%20iPhone%2016%20Pro.png',
-      backgroundColor: '#1a1a1a',
-      color: 'dark',
-    },
-    {
       id: 2,
       title: 'Y22 ai',
-      subtitle: 'Product',
+      subtitle: 'Product • Web',
       image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/Free%20MacBook%20Pro%20mockup%20on%20stone%20pedestal%20%28Mockuuups%20Studio%29.png',
       backgroundColor: '#90C4B0',
       color: 'light',
+      dots: 1,
     },
     {
-      id: 3,
-      title: 'Chef Ami',
-      subtitle: 'Product • Web',
-      image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/Pixel%207a.png',
-      backgroundColor: '#2c2c3c',
+      id: 1,
+      title: 'The Helpline Club',
+      subtitle: 'Product',
+      image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/Hand%20and%20iPhone%2016%20Pro.png',
+      backgroundColor: '#1a1a1a',
       color: 'dark',
+      dots: 1,
     },
     {
       id: 4,
       title: 'SAM',
       subtitle: 'Product • Web',
       image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/MacBook%20%2301.png',
+      backgroundColor: '#2c2c3c',
+      color: 'dark',
+      dots: 1,
+    },
+    {
+      id: 3,
+      title: 'Chef Ami',
+      subtitle: 'Product',
+      image: 'https://raw.githubusercontent.com/Kanchandesign/Mywebsite/main/Pixel%207a.png',
       backgroundColor: '#f5a557',
       color: 'light',
+      dots: 1,
     }
   ]
 

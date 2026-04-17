@@ -1,1 +1,13 @@
 /* New layout styles for sidebar + gallery design */
+
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    flex-direction: column;
+  }
+}
