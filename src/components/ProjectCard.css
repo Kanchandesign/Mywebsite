@@ -2,45 +2,40 @@
   position: relative;
   overflow: hidden;
   margin: 20px;
-  margin-bottom: 0;
   border-radius: 4px;
-  min-height: 650px;
-  background-size: 100%;
+
+  aspect-ratio: 16 / 10; /* 🔥 MAGIC */
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-size 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@media (max-width: 1440px) {
-  .project-card {
-    min-height: 600px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .project-card {
-    min-height: 500px;
-    margin: 15px;
-  }
+  transform: scale(1);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 @media (max-width: 768px) {
   .project-card {
-    min-height: 450px;
+    aspect-ratio: 4 / 3;
     margin: 10px;
-    border-radius: 2px;
+  }
+
+  .project-card::before {
+    /* On smaller screens, prefer showing the full image (no crop). */
+    background-size: contain;
   }
 }
 
-@media (max-width: 480px) {
-  .project-card {
-    min-height: 350px;
-    margin: 8px;
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover::before {
+    transform: scale(1.08); /* smaller zoom = smoother feel */
   }
-}
-
-.project-card:hover {
-  background-size: 108%; /* smaller zoom = smoother feel */
 }
 
 @keyframes gradientShift {
@@ -64,7 +59,7 @@
   right: 0;
   z-index: 1;
   animation: fadeInUp 0.8s ease-out 0.4s both;
-  padding: 40px;
+  padding: 20px;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
@@ -264,94 +259,4 @@
 .dot:hover.light {
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-}
-
-@media (max-width: 1024px) {
-  .project-card {
-    padding: 50px 30px;
-    min-height: 80vh;
-  }
-
-  .project-image {
-    max-height: 60vh;
-  }
-
-  .project-title {
-    font-size: 24px;
-  }
-
-  .project-info {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .project-card {
-    padding: 40px 20px;
-    min-height: 70vh;
-  }
-
-  .project-content {
-    margin-bottom: 30px;
-  }
-
-  .project-image {
-    max-height: 50vh;
-  }
-
-  .project-title {
-    font-size: 20px;
-  }
-
-  .project-subtitle {
-    font-size: 12px;
-  }
-
-  .project-info {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .project-dots {
-    margin-top: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-card {
-    padding: 20px 12px;
-    min-height: 60vh;
-  }
-
-  .project-content {
-    margin-bottom: 20px;
-  }
-
-  .project-image {
-    max-height: 35vh;
-  }
-
-  .project-title {
-    font-size: 18px;
-  }
-
-  .project-subtitle {
-    font-size: 11px;
-  }
-
-  .project-info {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px;
-  }
-
-  .project-dots {
-    margin-top: 10px;
-    gap: 6px;
-  }
-
-  .dot {
-    width: 6px;
-    height: 6px;
-  }
 }
