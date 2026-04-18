@@ -7,6 +7,15 @@
   aspect-ratio: 16 / 10; /* 🔥 MAGIC */
 }
 
+.project-card[role='button'] {
+  cursor: pointer;
+}
+
+.project-card[role='button']:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 4px;
+}
+
 .project-card::before {
   content: '';
   position: absolute;
@@ -62,7 +71,7 @@
   padding: 20px;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(8px);
   box-sizing: border-box;
 }
@@ -191,10 +200,7 @@
 }
 
 .project-dots {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  animation: fadeIn 0.8s ease-out 0.6s both;
+  display: none;
 }
 
 @keyframes fadeIn {

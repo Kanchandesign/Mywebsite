@@ -1,6 +1,6 @@
 import './ProjectCard.css'
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, onSelect }) {
   // Ensure filenames with spaces / '#' work in CSS url(...)
   const encodedImageUrl = (() => {
     const raw = project?.image ?? ''
@@ -16,6 +16,14 @@ function ProjectCard({ project, index }) {
     }
   })()
 
+  const handleKeyDown = (e) => {
+    if (!onSelect) return
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      onSelect()
+    }
+  }
+
   return (
     <div 
       className={`project-card project-${index + 1}`}
@@ -23,6 +31,11 @@ function ProjectCard({ project, index }) {
         backgroundImage: encodedImageUrl ? `url("${encodedImageUrl}")` : undefined,
         backgroundColor: project.backgroundColor
       }}
+      role={onSelect ? 'button' : undefined}
+      tabIndex={onSelect ? 0 : undefined}
+      onClick={onSelect}
+      onKeyDown={handleKeyDown}
+      aria-label={onSelect ? `Open case study: ${project.title}` : undefined}
     >
       <div className="project-info">
         <div className="project-text">
