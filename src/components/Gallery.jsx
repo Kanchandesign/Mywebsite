@@ -4,46 +4,13 @@ import ProjectCard from './ProjectCard'
 import About from './About'
 import ProjectDetail from './ProjectDetail'
 
-function Gallery({ showAbout, setShowAbout }) {
+function Gallery({ showAbout, setShowAbout, setIsProjectDetailOpen }) {
   const [scrollY, setScrollY] = useState(0)
   const [activeProject, setActiveProject] = useState(0)
   const [selectedProjectId, setSelectedProjectId] = useState(null)
 
   // `image` = ProjectCard background. `detailImages` = case-study scroll (files in /public).
   const projects = [
-    {
-      id: 2,
-      title: 'Y22 ai',
-      subtitle: 'Product • Web',
-      image: '/Free MacBook Pro mockup on stone pedestal (Mockuuups Studio).png',
-      detailLayout: 'grid',
-      detailImages: [
-        'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1522252234503-e356532cafd5?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70',
-        'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=70',
-      ],
-      backgroundColor: '#90C4B0',
-      color: 'light',
-      dots: 1,
-      detailOverview:
-        'End-to-end product design for an AI-powered workflow tool, balancing technical depth with a calm, approachable interface for daily use.',
-      detailBullets: [
-        'Information architecture for multi-step AI tasks',
-        'Design system and component patterns',
-        'Collaboration with engineering on feasibility and polish',
-      ],
-      detailResults:
-        'Shipped a cohesive web experience that reduced perceived complexity and set a scalable foundation for future AI features.',
-    },
     {
       id: 1,
       title: 'The Helpline Club',
@@ -76,6 +43,39 @@ function Gallery({ showAbout, setShowAbout }) {
       ],
       detailResults:
         'A clearer path to help and a visual language that feels steady and human, aligned with the mission of the club.',
+    },
+    {
+      id: 2,
+      title: 'Y22 ai',
+      subtitle: 'Product • Web',
+      image: '/Free MacBook Pro mockup on stone pedestal (Mockuuups Studio).png',
+      detailLayout: 'grid',
+      detailImages: [
+        'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1522252234503-e356532cafd5?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70',
+        'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=70',
+      ],
+      backgroundColor: '#90C4B0',
+      color: 'light',
+      dots: 1,
+      detailOverview:
+        'End-to-end product design for an AI-powered workflow tool, balancing technical depth with a calm, approachable interface for daily use.',
+      detailBullets: [
+        'Information architecture for multi-step AI tasks',
+        'Design system and component patterns',
+        'Collaboration with engineering on feasibility and polish',
+      ],
+      detailResults:
+        'Shipped a cohesive web experience that reduced perceived complexity and set a scalable foundation for future AI features.',
     },
     {
       id: 4,
@@ -145,20 +145,23 @@ function Gallery({ showAbout, setShowAbout }) {
     },
   ]
 
+  const projectsSorted = [...projects].sort((a, b) => (a?.id ?? 0) - (b?.id ?? 0))
+
   const selectedProject = selectedProjectId
-    ? projects.find((p) => p.id === selectedProjectId) ?? null
+    ? projectsSorted.find((p) => p.id === selectedProjectId) ?? null
     : null
 
   useEffect(() => {
     if (showAbout) {
       setSelectedProjectId(null)
+      setIsProjectDetailOpen?.(false)
     }
   }, [showAbout])
 
   useEffect(() => {
     const calculateActiveProject = (y) => {
       const projectIndex = Math.floor(y / window.innerHeight)
-      setActiveProject(Math.min(projectIndex, projects.length - 1))
+      setActiveProject(Math.min(projectIndex, projectsSorted.length - 1))
     }
 
     const handleScroll = (e) => {
@@ -172,11 +175,12 @@ function Gallery({ showAbout, setShowAbout }) {
       galleryElement.addEventListener('scroll', handleScroll)
       return () => galleryElement.removeEventListener('scroll', handleScroll)
     }
-  }, [projects.length])
+  }, [projectsSorted.length])
 
   const openProject = (project) => {
     setShowAbout(false)
     setSelectedProjectId(project.id)
+    setIsProjectDetailOpen?.(true)
     const galleryElement = document.querySelector('.gallery')
     if (galleryElement) {
       galleryElement.scrollTop = 0
@@ -187,9 +191,19 @@ function Gallery({ showAbout, setShowAbout }) {
     <main className="gallery">
       {selectedProject ? (
         <div className="about-view about-view--project-detail">
-          <button type="button" className="close-btn" onClick={() => setSelectedProjectId(null)}>
-            ← Back
-          </button>
+          <div className="project-detail-header">
+            <button
+              type="button"
+              className="close-btn"
+              onClick={() => {
+                setSelectedProjectId(null)
+                setIsProjectDetailOpen?.(false)
+              }}
+            >
+              ← Back
+            </button>
+            <h2 className="project-detail-title">{selectedProject?.title ?? ''}</h2>
+          </div>
           <ProjectDetail project={selectedProject} />
         </div>
       ) : showAbout ? (
@@ -201,7 +215,7 @@ function Gallery({ showAbout, setShowAbout }) {
         </div>
       ) : (
         <div className="gallery-container">
-          {projects.map((project, index) => (
+          {projectsSorted.map((project, index) => (
             <div 
               key={project.id} 
               className="project-wrapper"
@@ -219,7 +233,7 @@ function Gallery({ showAbout, setShowAbout }) {
 
       {!showAbout && !selectedProject && (
         <div className="scroll-progress">
-          {projects.map((_, index) => (
+          {projectsSorted.map((_, index) => (
             <div
               key={index}
               className={`progress-dot ${index === activeProject ? 'active' : ''}`}

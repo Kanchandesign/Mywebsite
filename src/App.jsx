@@ -5,11 +5,16 @@ import Gallery from './components/Gallery'
 
 function App() {
   const [showAbout, setShowAbout] = useState(false)
+  const [isProjectDetailOpen, setIsProjectDetailOpen] = useState(false)
 
   return (
     <div className="App">
-      <Sidebar setShowAbout={setShowAbout} showAbout={showAbout} />
-      <Gallery showAbout={showAbout} setShowAbout={setShowAbout} />
+      {!isProjectDetailOpen && <Sidebar setShowAbout={setShowAbout} showAbout={showAbout} />}
+      <Gallery
+        showAbout={showAbout}
+        setShowAbout={setShowAbout}
+        setIsProjectDetailOpen={setIsProjectDetailOpen}
+      />
     </div>
   )
 }

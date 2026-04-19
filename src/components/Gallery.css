@@ -35,14 +35,33 @@
   box-sizing: border-box;
 }
 
-.about-view--project-detail .close-btn {
-  margin-left: 40px;
-  margin-right: 40px;
+.project-detail-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0 40px 30px;
+  min-width: 0;
+}
+
+.project-detail-header .close-btn {
+  margin: 0;
+}
+
+.project-detail-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 768px) {
   .about-view {
-    padding: 25px;
+    padding: 0;
   }
 
   .about-view--project-detail {
@@ -50,9 +69,9 @@
     padding-right: 0;
   }
 
-  .about-view--project-detail .close-btn {
-    margin-left: 25px;
-    margin-right: 25px;
+  .project-detail-header {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .gallery {
@@ -63,7 +82,7 @@
 
 @media (max-width: 480px) {
   .about-view {
-    padding: 16px;
+    padding: 0;
     overflow-y: auto;
     height: auto;
   }
@@ -73,7 +92,7 @@
     padding-right: 0;
   }
 
-  .about-view--project-detail .close-btn {
+  .project-detail-header {
     margin-left: 16px;
     margin-right: 16px;
   }
@@ -209,7 +228,6 @@
 @media (max-width: 1024px) {
   .scroll-progress {
     right: 20px;
-    gap: 10px;
   }
 
   .gallery {
@@ -217,21 +235,19 @@
   }
 
   .about-view {
-    padding: 30px;
+    padding: 0;
   }
 }
 
 @media (max-width: 1024px) {
   .scroll-progress {
     right: 20px;
-    gap: 10px;
   }
 }
 
 @media (max-width: 768px) {
   .scroll-progress {
     right: 15px;
-    gap: 8px;
   }
 
   .progress-dot {
