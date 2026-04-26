@@ -1,12 +1,34 @@
 import './ProjectDetail.css'
+import ComingSoon from './ComingSoon'
+
+function shouldBustPublicAssetCache() {
+  // Vite dev server sets import.meta.env.DEV, but users sometimes view via a local preview
+  // of `dist/` or static server; treat localhost as "dev-like" for cache busting.
+  const isViteDev = Boolean(import.meta.env?.DEV)
+  const host = typeof window !== 'undefined' ? window.location.hostname : ''
+  const isLocalHost =
+    host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0' || host === '::1'
+  return isViteDev || isLocalHost
+}
 
 function encodeImagePath(raw) {
   if (!raw) return ''
   const safePath = raw.replaceAll('#', '%23')
+
+  // In dev, replaced files in /public can be served from cache if the URL
+  // doesn't change. Bust cache for local public assets only (keep prod cacheable).
+  let finalPath = safePath
+  if (shouldBustPublicAssetCache() && safePath.startsWith('/')) {
+    const cacheBuster = `v=${Date.now()}`
+    finalPath += safePath.includes('?')
+      ? `&${cacheBuster}`
+      : `?${cacheBuster}`
+  }
+
   try {
-    return new URL(safePath, window.location.origin).toString()
+    return new URL(finalPath, window.location.origin).toString()
   } catch {
-    return encodeURI(safePath)
+    return encodeURI(finalPath)
   }
 }
 
@@ -24,7 +46,17 @@ function ProjectDetail({ project }) {
     detailImages = [],
     images: legacyImages = [],
     detailLayout = 'grid',
+    comingSoon = false,
+    comingSoonSubtitle,
   } = project ?? {}
+
+  if (comingSoon) {
+    return (
+      <section className="project-detail">
+        <ComingSoon title={title} subtitle={comingSoonSubtitle} />
+      </section>
+    )
+  }
 
   let galleryImages = []
   const normalizedDetailImages = normalizeImages(detailImages)
