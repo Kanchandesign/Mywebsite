@@ -27,7 +27,7 @@ function Sidebar({ setShowAbout, showAbout }) {
             <a href="https://dribbble.com/KanchanS19" target="_blank" rel="noopener noreferrer" aria-label="Dribble">
               <img src="/streamline-flex_dribble-solid.svg" alt="Dribble" width="16" height="16" />
             </a>
-            <a href="/Kanchan_Singh_UX_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+            <a href="/resume.pdf?v=20260426" target="_blank" rel="noopener noreferrer" aria-label="Resume">
               <img src="/mdi_resume.svg" alt="Resume" width="16" height="16" />
             </a>
             <a href="https://behance.net/kanchansingh11" target="_blank" rel="noopener noreferrer" aria-label="Behance">
