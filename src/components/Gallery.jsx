@@ -3,13 +3,15 @@ import './Gallery.css'
 import ProjectCard from './ProjectCard'
 import About from './About'
 import ProjectDetail from './ProjectDetail'
+import gaiaCardImage from './gaia.png'
+import gaiaCaseImage from './Gaia case.png'
 
 function Gallery({ showAbout, setShowAbout, setIsProjectDetailOpen }) {
   const [scrollY, setScrollY] = useState(0)
   const [activeProject, setActiveProject] = useState(0)
   const [selectedProjectId, setSelectedProjectId] = useState(null)
 
-  // `image` = ProjectCard background. `detailImages` = case-study scroll (files in /public).
+  // `image` = ProjectCard background. `detailImages` = case-study scroll (/public paths or imported assets).
   const projects = [
     {
       id: 1,
@@ -67,13 +69,12 @@ function Gallery({ showAbout, setShowAbout, setIsProjectDetailOpen }) {
         'Shipped a cohesive web experience that reduced perceived complexity and set a scalable foundation for future AI features.',
     },
     {
-      id: 4,
-      title: 'SAM',
+      id: 3,
+      title: 'Gaia',
       subtitle: 'Product • Web',
-      image: '/MacBook-01.png',
-      comingSoon: true,
+      image: gaiaCardImage,
       detailLayout: 'grid',
-      detailImages: [],
+      detailImages: [gaiaCaseImage],
       backgroundColor: '#2c2c3c',
       color: 'dark',
       dots: 1,
@@ -88,7 +89,7 @@ function Gallery({ showAbout, setShowAbout, setIsProjectDetailOpen }) {
         'Delivered a scalable web UI that teams could extend while keeping a consistent, professional feel.',
     },
     {
-      id: 3,
+      id: 4,
       title: 'Chef Ami',
       subtitle: 'Product',
       image: '/Pixel 7a.png',
