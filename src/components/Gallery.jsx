@@ -92,6 +92,7 @@ function Gallery({ showAbout, setShowAbout, setIsProjectDetailOpen }) {
       id: 4,
       title: 'Chef Ami',
       subtitle: 'Product',
+      hidden: true,
       image: '/Pixel 7a.png',
       comingSoon: true,
       detailLayout: 'grid',
@@ -111,7 +112,7 @@ function Gallery({ showAbout, setShowAbout, setIsProjectDetailOpen }) {
     },
   ]
 
-  const projectsSorted = [...projects].sort((a, b) => (a?.id ?? 0) - (b?.id ?? 0))
+  const projectsSorted = [...projects].filter((p) => !p.hidden).sort((a, b) => (a?.id ?? 0) - (b?.id ?? 0))
 
   const selectedProject = selectedProjectId
     ? projectsSorted.find((p) => p.id === selectedProjectId) ?? null
