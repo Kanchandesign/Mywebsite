@@ -116,14 +116,15 @@ function About() {
           </div>
         </div>
 
-        <p className="about-caption">Some quick facts about me</p>
+        <p className="about-caption">My Journey</p>
 
         <div className="about-copy">
           <p>
-            Hi, I’m Kanchan! I’m a UX designer specialising in{' '}
+            Hi, I’m Kanchan! I’m a UX designer specializing in{' '}
             <strong>complex products, AI tools, and technical systems</strong>. I work in the
-            gap between infrastructure and the people who have to use it. <strong>Impact,
-            clarity, and problem solving</strong> are why I became a designer in the first place.
+            gap between infrastructure and the people who have to use it.{' '}
+            <strong>Impact, clarity, and problem-solving</strong> are why I became a designer in
+            the first place.
           </p>
           <p>
             My journey into product design has been anything but linear. It started in the most
@@ -138,33 +139,74 @@ function About() {
               <ol className="am-steps">
                 <li className="am-step">
                   <span className="am-num">1</span>
-                  <p>
-                    I was always the visual one — noticing how products felt, sketching flows in
-                    the margins — but didn’t immediately treat design as a career.
-                  </p>
+                  <div className="am-step-body">
+                    <h4 className="am-step-title">The Pandemic &amp; The Reset</h4>
+                    <p>
+                      Right after I finished my 12th grade, the pandemic hit. The world shut down,
+                      uncertainty was everywhere, and standard college admissions became
+                      impossible. To make things harder, I fell severely ill, losing an entire
+                      year (2020 to 2021) purely to recovery.
+                    </p>
+                    <p>
+                      During this phase, I self-studied for the JEE Mains Paper 2 (B.Arch). Even
+                      though I froze during the actual exam, I still managed an All India Rank
+                      around 3,000. But due to a lack of guidance, I missed the admission
+                      application windows. Navigating everything without proper information made
+                      things incredibly difficult, so I decided to take charge of my own destiny.
+                    </p>
+                  </div>
                 </li>
                 <li className="am-step">
                   <span className="am-num">2</span>
-                  <p>
-                    I taught myself the craft by taking products apart: information architecture,
-                    interaction, and the quiet decisions that make something usable.
-                  </p>
+                  <div className="am-step-body">
+                    <h4 className="am-step-title">The Hustle &amp; The Spark</h4>
+                    <p>
+                      Isolated and trying to figure out a path forward, I turned to Google and
+                      YouTube. I discovered freelancing and thought, “Let’s try this to stand on
+                      my own feet.” I started pitching on Upwork, landing minor logo design
+                      projects. I quickly realized I loved the work, discovered it belonged to a
+                      broader field called <strong>Graphic Design</strong>, and immersed myself in
+                      learning everything about it.
+                    </p>
+                  </div>
                 </li>
                 <li className="am-step">
                   <span className="am-num">3</span>
-                  <p>
-                    That led to work on dense, high-stakes interfaces — including time at{' '}
-                    <strong>Modal</strong> — where design had to hold up against real technical
-                    complexity.
-                  </p>
+                  <div className="am-step-body">
+                    <h4 className="am-step-title">The Corporate Proof</h4>
+                    <p>
+                      In February 2022, after facing 2–3 initial rejections, I secured a graphic
+                      design internship. I put everything into my work. Within just two months,
+                      the team offered me a full-time role. Six months later, I was promoted.
+                      Another six months later, I earned my first salary hike.
+                    </p>
+                    <p>
+                      By this point, I had naturally transitioned into website design. I loved
+                      building interfaces, but I wanted to go deeper than just making things look
+                      visually good. I wanted to understand the backend, the functional UX, and
+                      the architecture of why things worked.
+                    </p>
+                  </div>
                 </li>
                 <li className="am-step">
                   <span className="am-num">4</span>
-                  <p>
-                    Since then I’ve designed end-to-end product experiences across{' '}
-                    <strong>AI companions, workflow tools, and data-heavy dashboards</strong> —
-                    owning IA, interaction, and systems.
-                  </p>
+                  <div className="am-step-body">
+                    <h4 className="am-step-title">Stepping into Deep Product Design</h4>
+                    <p>
+                      Knowing I wanted to focus strictly on core UI/UX, I started interviewing
+                      again. I faced rejections, and I turned down offers that didn’t match my
+                      focus, until I joined <strong>HestaBit</strong> as a UI/UX Designer in April
+                      2023. At the time, I was also pursuing a regular B.Sc. degree, but balancing
+                      intense full-time design workloads with heavy science practicals became
+                      impossible.
+                    </p>
+                    <p>
+                      I paused, researched alternative paths, and made a strategic choice to
+                      switch to a distance-learning <strong>BA in Psychology</strong>. As a
+                      naturally curious person, I had always been fascinated by human
+                      behavior—why people take certain actions and what triggers their decisions.
+                    </p>
+                  </div>
                 </li>
               </ol>
 
@@ -182,17 +224,31 @@ function About() {
             <h3 className="am-heading">Where I am today…</h3>
             <div className="am-para">
               <p>
-                That work turned into a practice I’m proud of. I’ve grown from someone teaching
-                themselves the basics into a designer who can take a messy product constraint and
-                make it feel obvious — and the way I work today looks nothing like where I started.
+                Studying psychology while designing enterprise systems became my ultimate unfair
+                advantage. As a UX designer, understanding human behavior allowed me to design
+                with profound empathy. I began building interfaces that systematically eliminated
+                cognitive load, ensuring users felt completely unburdened and at ease while
+                navigating complex software.
+              </p>
+              <p>
+                I put these exact behavioral principles into practice on{' '}
+                <strong>Helpline Club</strong>, our Voice AI platform, delivering some of my
+                finest architecture work. My contributions drove massive business value,
+                translating into a <strong>90% salary hike</strong> in my first year and a half,
+                followed by a <strong>70% hike</strong> in my second year.
+              </p>
+              <p>
+                After driving massive growth at HestaBit, I am now looking for my next
+                challenge—ready to bring my experience in complex systems and human psychology to
+                a high-impact product team.
               </p>
               <p>
                 With AI reshaping everything, I believe in this craft more than ever. The
                 workflows have changed. I remember how boxed-in design used to feel, capped by
                 what we could create on a canvas. Now, whatever we can imagine, we can actually
                 build. That makes us the{' '}
-                <strong>most powerful generation of designers to ever exist</strong>, and I can’t
-                wait to see what lies ahead.
+                <strong>most powerful generation of designers to ever exist</strong>—and I am
+                ready for the next complex challenge.
               </p>
             </div>
           </section>
