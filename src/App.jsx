@@ -9,7 +9,9 @@ function App() {
 
   return (
     <div className="App">
-      {!isProjectDetailOpen && <Sidebar setShowAbout={setShowAbout} showAbout={showAbout} />}
+      {!isProjectDetailOpen && !showAbout && (
+        <Sidebar setShowAbout={setShowAbout} showAbout={showAbout} />
+      )}
       <Gallery
         showAbout={showAbout}
         setShowAbout={setShowAbout}

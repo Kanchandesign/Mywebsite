@@ -1,29 +1,79 @@
 .gallery {
+  --gallery-inset: 40px;
   flex: 1;
   min-width: 0; /* flex item: allow shrinking below wide image intrinsic width */
   overflow-y: scroll;
   overflow-x: hidden;
   background: #f5f5f5;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
+  /* Keep cards from snapping flush to the top and eating the inset */
+  scroll-padding-top: var(--gallery-inset);
 }
 
 .gallery-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  gap: 12px;
+  padding: var(--gallery-inset) 28px 48px 16px;
+  box-sizing: border-box;
 }
 
 .project-wrapper {
-  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: stretch;
   width: 100%;
+  flex-shrink: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-snap-align: start;
 }
 
 .about-view {
-  padding: 40px;
+  padding: 28px 40px 64px;
   overflow-y: auto;
   height: 100%;
   animation: fadeIn 0.6s ease-out;
+}
+
+.gallery--about {
+  background: #ffffff;
+  scroll-snap-type: none;
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
+.gallery--about .about-view--about-page {
+  height: auto;
+  min-height: 100%;
+  display: block;
+  overflow: visible;
+  padding: 0;
+}
+
+.gallery--about .project-detail-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 12px 0;
+  margin: 28px 40px 8px;
+}
+
+.gallery--case-study {
+  background: #ffffff;
+  scroll-snap-type: none;
+  /* Keep x as clip (not hidden) so position:sticky on Contents still works */
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
+.gallery--case-study .about-view--project-detail {
+  height: auto;
+  min-height: 100%;
+  display: block;
+  overflow: visible;
 }
 
 .about-view--project-detail {
@@ -31,16 +81,24 @@
   padding-right: 0;
   min-width: 0;
   max-width: 100%;
-  overflow-x: hidden;
   box-sizing: border-box;
+}
+
+.gallery--case-study .project-detail-header {
+  margin: 28px 40px 8px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 12px 0;
 }
 
 .project-detail-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 14px;
-  margin: 40px 30px 40px 30px;
-  margin-top: 40px;
+  margin: 28px 40px 8px;
   min-width: 0;
 }
 
@@ -48,10 +106,73 @@
   margin: 0;
 }
 
+.btn-go-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #0a0a0a;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 10px 18px 10px 14px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.close-btn.btn-go-back:hover,
+.btn-go-back:hover {
+  border-color: #0a0a0a;
+  background: #0a0a0a;
+  color: #ffffff;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-go-back__icon {
+  display: inline-flex;
+  width: 1.2em;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.btn-go-back:hover .btn-go-back__icon {
+  animation: cs-fly-left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cs-fly-left {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-100%, 0);
+    opacity: 0;
+  }
+  26% {
+    transform: translate(100%, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-go-back:hover .btn-go-back__icon {
+    animation: none;
+  }
+}
+
 .project-detail-title {
   margin: 0;
+  font-family: var(--font-heading);
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 700;
   color: #1a1a1a;
   letter-spacing: -0.01em;
   min-width: 0;
@@ -65,19 +186,38 @@
     padding: 0;
   }
 
+  .gallery--about .about-view--about-page {
+    padding: 0;
+  }
+
+  .gallery--about .project-detail-header {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
   .about-view--project-detail {
     padding-left: 0;
     padding-right: 0;
   }
 
   .project-detail-header {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 28px;
+    margin-right: 28px;
+  }
+
+  .gallery--case-study .project-detail-header {
+    margin-left: 24px;
+    margin-right: 24px;
   }
 
   .gallery {
     overflow-y: auto;
     overflow-x: hidden;
+  }
+
+  .gallery--case-study {
+    overflow-x: clip;
+    overflow-y: auto;
   }
 }
 
@@ -88,14 +228,33 @@
     height: auto;
   }
 
+  .gallery--about .about-view--about-page {
+    padding: 0;
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
+
+  .gallery--about .project-detail-header {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .gallery--case-study .about-view--project-detail {
+    overflow: visible;
+    height: auto;
+    min-height: 100%;
+    padding: 0;
+  }
+
   .about-view--project-detail {
     padding-left: 0;
     padding-right: 0;
   }
 
   .project-detail-header {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 18px;
+    margin-right: 18px;
   }
 }
 
@@ -161,7 +320,30 @@
   animation: fadeInRight 0.6s ease-out 0.4s both;
 }
 
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.progress-dot.active {
+  background: #1a1a1a;
+  transform: scale(1.15);
+}
+
 @media (max-width: 480px) {
+  .gallery {
+    --gallery-inset: 24px;
+  }
+
+  .gallery-container {
+    gap: 10px;
+    padding: var(--gallery-inset) 12px 36px;
+  }
+
   .scroll-progress {
     right: 10px;
     top: auto;
@@ -238,6 +420,15 @@
   .about-view {
     padding: 0;
   }
+
+  .gallery--about .about-view--about-page {
+    padding: 0;
+  }
+
+  .gallery--about .project-detail-header {
+    margin-left: 28px;
+    margin-right: 28px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -247,6 +438,15 @@
 }
 
 @media (max-width: 768px) {
+  .gallery {
+    --gallery-inset: 28px;
+  }
+
+  .gallery-container {
+    gap: 10px;
+    padding: var(--gallery-inset) 14px 40px;
+  }
+
   .scroll-progress {
     right: 15px;
   }
