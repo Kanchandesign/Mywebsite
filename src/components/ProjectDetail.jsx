@@ -75,12 +75,8 @@ function NarrativeSection({ section, index }) {
   const n = String(index + 1).padStart(2, '0')
   const listClass = (section.list || []).length > 6 ? 'cs-list cs-list--columns' : 'cs-list'
 
-  return (
-    <section
-      className={`cs-section cs-reveal${section.soft ? ' cs-section--soft' : ''}`}
-      id={`cs-${section.id}`}
-    >
-      <SectionHeading index={n} title={section.title} />
+  const body = (
+    <>
       {section.eyebrow && <p className="cs-eyebrow">{section.eyebrow}</p>}
       {section.lead && (
         <p className="cs-lead">
@@ -100,6 +96,11 @@ function NarrativeSection({ section, index }) {
       {(section.paragraphs || []).map((p) => (
         <Prose key={p.slice(0, 48)} text={p} />
       ))}
+      {section.figure && (
+        <figure className="cs-figure">
+          <img src={encodeImagePath(section.figure)} alt={section.figureAlt || section.title} />
+        </figure>
+      )}
       {section.stats?.length > 0 && (
         <div
           className={`cs-stats${section.stats.length === 3 ? ' cs-stats--three' : ''}${
@@ -205,6 +206,25 @@ function NarrativeSection({ section, index }) {
         </div>
       )}
       {section.closing && <Prose className="cs-prose cs-prose--emphasis" text={section.closing} />}
+    </>
+  )
+
+  return (
+    <section
+      className={`cs-section cs-reveal${section.soft ? ' cs-section--soft' : ''}`}
+      id={`cs-${section.id}`}
+    >
+      <SectionHeading index={n} title={section.title} />
+      {section.image ? (
+        <div className="cs-split">
+          <div className="cs-split__body">{body}</div>
+          <figure className="cs-split__media">
+            <img src={encodeImagePath(section.image)} alt={section.imageAlt || section.title} />
+          </figure>
+        </div>
+      ) : (
+        body
+      )}
     </section>
   )
 }
@@ -213,7 +233,6 @@ function CaseStudy({ project, caseStudy, onBack }) {
   const contents = caseStudy.contents || []
   const [activeId, setActiveId] = useState(contents[0]?.id ?? 'summary')
   const clickingRef = useRef(false)
-  const title = caseStudy.headline || project.title
 
   // Mid-viewport IntersectionObserver (reference-style scroll spy)
   useEffect(() => {
@@ -298,31 +317,6 @@ function CaseStudy({ project, caseStudy, onBack }) {
 
   return (
     <article className="cs">
-      <header className="cs-hero cs-reveal is-inview">
-        {caseStudy.kicker && <p className="cs-kicker">{caseStudy.kicker}</p>}
-        <div className="cs-hero__title-row">
-          <h1 className="cs-hero__title">
-            {title.split('\n').map((line, i) => (
-              <span key={i}>
-                {line}
-                {i < title.split('\n').length - 1 && <br />}
-              </span>
-            ))}
-          </h1>
-          <span className="cs-hero__badge">{caseStudy.number}</span>
-        </div>
-        <p className="cs-hero__intro">{caseStudy.intro}</p>
-
-        <dl className={`cs-meta${(caseStudy.meta || []).length > 4 ? ' cs-meta--wide' : ''}`}>
-          {(caseStudy.meta || []).map((item) => (
-            <div className="cs-meta__item" key={item.label}>
-              <dt>{item.label}</dt>
-              <dd>{item.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </header>
-
       <div className="cs-layout">
         <aside className="cs-toc" aria-label="Case study contents">
           <div className="cs-toc__inner">

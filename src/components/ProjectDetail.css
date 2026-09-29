@@ -116,6 +116,7 @@
   gap: 48px;
   align-items: stretch;
   position: relative;
+  padding-top: 48px;
 }
 
 .cs-toc {
@@ -191,6 +192,32 @@
   background: var(--cs-soft);
   border-radius: 16px;
   padding: 64px 28px;
+}
+
+.cs-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.cs-split__media {
+  margin: 0;
+}
+
+.cs-figure {
+  margin: 32px 0;
+}
+
+.cs-figure img {
+  border-radius: 4% / 6%;
+}
+
+.cs-figure img,
+.cs-split__media img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .cs-section__head {
@@ -940,6 +967,12 @@
   .cs-layout {
     grid-template-columns: 1fr;
     gap: 28px;
+    padding-top: 24px;
+  }
+
+  .cs-split {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   .cs-toc__inner {

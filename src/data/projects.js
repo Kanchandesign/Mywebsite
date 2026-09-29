@@ -74,8 +74,9 @@ export const projects = [
         {
           id: 'overview',
           title: 'Overview',
-          eyebrow:
-            'The product is still in development, so this is a design-reasoning case study — not a results-driven one.',
+          image: '/Helpline images/overview-hero.png',
+          imageAlt: 'Voice AI Helpline app showing an active call screen and the home screen',
+          eyebrow: 'Still in development — a design-reasoning case study.',
           paragraphs: [
             'Voice AI Helpline is an iOS AI companion app designed to give users a more natural and personal way to talk, express themselves, and feel heard.',
             'The product was initiated by a psychologist who observed that many teenagers struggle to find someone they feel comfortable talking to openly about their thoughts and feelings.',
@@ -413,6 +414,8 @@ export const projects = [
             'Y22 AI creates a simulated environment where a salesperson can practice with an **AI-generated client persona**, conduct a realistic sales conversation, and then receive structured feedback on their performance.',
             'Instead of learning only from real customer interactions — where mistakes can have a direct business cost — the product gives salespeople a space to **practice, make mistakes, receive feedback, and improve**.',
           ],
+          figure: '/Y22 images/dashboard.jpg',
+          figureAlt: 'Y22 AI manager dashboard showing team simulation score, call volume trend, reps below threshold, and recently created AI prospects',
         },
         {
           id: 'problem',
@@ -744,6 +747,8 @@ export const projects = [
             { value: '4', label: 'Major user roles' },
             { value: '1', label: 'Connected campaign lifecycle' },
           ],
+          figure: '/Gaia images/dashboard.jpg',
+          figureAlt: 'Gaia dashboard showing campaign stats, top campaigns, applications vs clicks chart, and the Talk With Gaia assistant',
         },
         {
           id: 'challenge',
@@ -1033,7 +1038,7 @@ export const projects = [
     id: 4,
     title: 'Career Compass AI',
     subtitle: 'Hackathon Project',
-    image: '',
+    image: '/career-compass-ai.jpg',
     detailLayout: 'grid',
     detailImages: [],
     backgroundColor: '#1c2b3a',
@@ -1049,8 +1054,8 @@ export const projects = [
         { value: '0→1', label: 'Concept' },
         { value: 'AI', label: 'Workflow' },
       ],
-      panelColor: '#1c2b3a',
-      visual: 'concept',
+      panelColor: '#2a1f8a',
+      visual: 'laptop',
       cta: 'View project',
     },
     caseStudy: {

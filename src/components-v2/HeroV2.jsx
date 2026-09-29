@@ -13,7 +13,7 @@ function HeroV2() {
       </p>
       <div className="v2-hero__actions">
         <a href="#work" className="v2-btn v2-btn--primary">View my work →</a>
-        <a href="mailto:hello@kanchan.dev" className="v2-btn v2-btn--ghost">Get in touch</a>
+        <a href="mailto:kanchandecmeber2002@gmail.com" className="v2-btn v2-btn--ghost">Get in touch</a>
       </div>
     </section>
   )

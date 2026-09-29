@@ -6,7 +6,7 @@ function NavV2() {
         <a href="#work">Work</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="/resume.pdf?v=20260426" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="/resume.pdf?v=20260907" target="_blank" rel="noopener noreferrer">Resume</a>
       </div>
     </nav>
   )
