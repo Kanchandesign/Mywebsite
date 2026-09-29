@@ -1060,6 +1060,7 @@ export const projects = [
     },
     caseStudy: {
       kicker: 'Career Compass AI',
+      link: { label: 'View project on Contra', url: 'https://on.contra.com/9FPq97' },
       headline: 'Designing an AI-powered\ncareer navigation system',
       number: '04',
       intro:
@@ -1085,6 +1086,8 @@ export const projects = [
             'Career Compass AI is a concept for a career navigation system that helps people understand where they are, what they need to learn, and how to get ready for the next role.',
             'Instead of treating skill assessment, learning, coaching, and job readiness as separate tools, the product was designed as one guided journey.',
           ],
+          video: 'https://www.loom.com/embed/f188cb12dca7426893b21896fc70ddb1?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true',
+          videoTitle: 'Career Compass AI product walkthrough',
         },
         {
           id: 'problem',

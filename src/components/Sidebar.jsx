@@ -24,14 +24,14 @@ function Sidebar({ setShowAbout, showAbout }) {
             <a href="/resume.pdf?v=20260907" target="_blank" rel="noopener noreferrer" aria-label="Resume">
               <img src="/mdi_resume.svg" alt="Resume" width="16" height="16" />
             </a>
+            <a href="https://www.behance.net/kanchansingh11" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+              <img src="/mage_behance.svg" alt="Behance" width="16" height="16" />
+            </a>
             <a href="https://www.linkedin.com/in/kanchan-singh-b3b002236" target="_blank" rel="noopener noreferrer" aria-label="Linkedin">
               <img src="/mdi_linkedin.svg" alt="LinkedIn" width="16" height="16" />
             </a>
             <a href="https://dribbble.com/KanchanS19" target="_blank" rel="noopener noreferrer" aria-label="Dribble">
               <img src="/streamline-flex_dribble-solid.svg" alt="Dribble" width="16" height="16" />
-            </a>
-            <a href="https://www.behance.net/kanchansingh11" target="_blank" rel="noopener noreferrer" aria-label="Behance">
-              <img src="/mage_behance.svg" alt="Behance" width="16" height="16" />
             </a>
           </div>
         </div>

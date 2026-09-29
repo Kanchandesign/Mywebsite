@@ -101,6 +101,17 @@ function NarrativeSection({ section, index }) {
           <img src={encodeImagePath(section.figure)} alt={section.figureAlt || section.title} />
         </figure>
       )}
+      {section.video && (
+        <div className="cs-video">
+          <iframe
+            src={section.video}
+            title={section.videoTitle || section.title}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+          />
+        </div>
+      )}
       {section.stats?.length > 0 && (
         <div
           className={`cs-stats${section.stats.length === 3 ? ' cs-stats--three' : ''}${
@@ -317,6 +328,19 @@ function CaseStudy({ project, caseStudy, onBack }) {
 
   return (
     <article className="cs">
+      {caseStudy.link && (
+        <a
+          className="cs-project-link"
+          href={caseStudy.link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="cs-project-link__label">{caseStudy.link.label || 'View project'}</span>
+          <span className="cs-project-link__arrow" aria-hidden="true">
+            ↗
+          </span>
+        </a>
+      )}
       <div className="cs-layout">
         <aside className="cs-toc" aria-label="Case study contents">
           <div className="cs-toc__inner">
